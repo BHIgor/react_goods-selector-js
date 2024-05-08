@@ -20,7 +20,7 @@ export const App = () => {
 
   return (
     <main className="section container">
-      {value === 'clear' ? (
+      {value === '' ? (
         <h1 className="title is-flex is-align-items-center">
           No goods selected
         </h1>
@@ -32,7 +32,7 @@ export const App = () => {
             type="button"
             className="delete ml-3"
             onClick={() => {
-              setValue('clear');
+              setValue('');
             }}
           />
         </h1>
@@ -42,6 +42,7 @@ export const App = () => {
         <tbody>
           {goods.map(good => (
             <tr
+              key={good}
               data-cy="Good"
               className={value === good ? 'has-background-success-light' : null}
             >
@@ -52,7 +53,7 @@ export const App = () => {
                     type="button"
                     className="button is-info"
                     onClick={() => {
-                      setValue('clear');
+                      setValue('');
                     }}
                   >
                     -
